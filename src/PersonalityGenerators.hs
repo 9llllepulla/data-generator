@@ -32,20 +32,20 @@ capitalize (x : xs) = toUpper x : xs
 -- генерация списка уникальных случайных имени-фамилии
 fullNamesGen :: Range -> Amount -> Offset -> [String]
 fullNamesGen range amount offset = 
-  let numbers = take (amount + 10) [1 ..]
-   in take amount $ uniqueFilter . map (\x -> toString $ fullNameGen range (x + offset))  $ numbers -- TODO исправить смещение 
+  let numbers = take amount [1 ..]
+   in take amount $ uniqueFilter . map (\x -> toString $ fullNameGen range (x + offset)) $ numbers
 
 fullNameGen :: Range -> Offset -> FullName
 fullNameGen range offset =
   let nameLen = randomNumberByRange (3, 7) offset
-      lastNameLen = randomNumberByRange (3, 9) (offset + 1)
+      lastNameLen = randomNumberByRange (3, 9) offset
    in generationFullName range (nameLen, lastNameLen) offset
 
 generationFullName :: Range -> (Int, Int) -> Offset -> FullName
 generationFullName range (nameLen, lastNameLen) offset =
   let name = randomAnyName nameLen offset
       lastName = randomAnyName lastNameLen (offset + 1)
-      birthDay = randomBirthDay range (offset + 2)
+      birthDay = randomBirthDay range offset
    in FullName name lastName birthDay
 
 randomAnyName :: Amount -> Offset -> String

@@ -40,14 +40,14 @@ randomNumberByRange :: Range -> Offset -> Int
 randomNumberByRange range offset =
   let digits = length $ show $ fst range
       numByRange = randomNumber offset digits
-   in byRange range offset numByRange
+   in rangeHelper range offset numByRange
 
-byRange :: Range -> Offset -> Int -> Int
-byRange (l, h) offset number
+rangeHelper :: Range -> Offset -> Int -> Int
+rangeHelper (l, h) offset number
  | number >= l && number <= h = number
  | otherwise = randomNumberByRange (l, h) (offset + 1)
 
 randomNumber :: Offset -> DigitsAmount -> Int
 randomNumber offset digitsAmount = 
-  let numAsStr = take digitsAmount . show $ head (randomNumbers offset offset)
+  let numAsStr = take digitsAmount . show $ head (randomNumbers offset digitsAmount)
    in read numAsStr :: Int
