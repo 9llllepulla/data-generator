@@ -17,9 +17,9 @@ extra-source-files:  README.md
 executable data-generator
   hs-source-dirs:      src
   main-is:             Main.hs
-  other-modules:       PhoneGenerators, PersonalityGenerators, PhoneGenerators, PhoneOutput, Main, CommandLine
+  other-modules:       PhoneGenerators, PersonalityGenerators, PhoneGenerators, PhoneOutput, Main, CommandLine, GeneratorUtils
   default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5, random, time
+  build-depends:       base >= 4.7 && < 5, random, time, mtl
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities
