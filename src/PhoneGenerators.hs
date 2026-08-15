@@ -1,12 +1,13 @@
+{-
 -----------------------------------------------------------------------------
--- |
--- Module      :  Generators
--- Copyright   :  (c) Sergey Lyashko 2023
--- License     :  see LICENSE
---
--- Generator for phone numbers by prefix
---
+    Module      :  PersonalityGenerators
+    Copyright   :  (c) Sergey Lyashko 2023-2026
+    License     :  see LICENSE
 -----------------------------------------------------------------------------
+-}
+
+-- | Generator for phone numbers by prefix
+{-# LANGUAGE InstanceSigs #-}
 module PhoneGenerators
   ( orderedPhonesGen
   , randomPhoneGen
@@ -20,6 +21,7 @@ class Generated a where
   toString :: a -> String
 
 instance Generated PhoneNumber where
+  toString :: PhoneNumber -> String
   toString (PhoneNumber prefix number) = show prefix ++ show number
 
 data PhoneNumber =

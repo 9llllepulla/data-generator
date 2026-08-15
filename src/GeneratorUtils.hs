@@ -1,12 +1,11 @@
+{-
 -----------------------------------------------------------------------------
+    Module      :  PersonalityGenerators
+    Copyright   :  (c) Sergey Lyashko 2023-2026
+    License     :  see LICENSE
 -----------------------------------------------------------------------------
-{- |
-Module      :  GeneratorUtils
-Copyright   :  (c) Sergey Lyashko 2023
-License     :  see LICENSE
-
-Util methods for any generators
 -}
+-- | Util methods for any generators
 module GeneratorUtils
   ( uniqueFilter
   , randomNumbers

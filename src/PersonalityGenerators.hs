@@ -1,12 +1,11 @@
+{-
 -----------------------------------------------------------------------------
+    Module      :  PersonalityGenerators
+    Copyright   :  (c) Sergey Lyashko 2023-2026
+    License     :  see LICENSE
 -----------------------------------------------------------------------------
-{- |
-Module      :  PersonalityGenerators
-Copyright   :  (c) Sergey Lyashko 2023
-License     :  see LICENSE
-
-Generator for personality full names
 -}
+-- | Generator for personality full names
 module PersonalityGenerators
   ( fullNamesGen
   , randomBirthDay

@@ -1,3 +1,11 @@
+{-
+-----------------------------------------------------------------------------
+    Module      :  PersonalityGenerators
+    Copyright   :  (c) Sergey Lyashko 2023-2026
+    License     :  see LICENSE
+-----------------------------------------------------------------------------
+-}
+
 module PhoneOutput
   ( printRandomPhonesOnConsole
   , printRandomPhonesToFile
@@ -9,12 +17,12 @@ import           Data.Time
 import           GeneratorUtils
 import           PhoneGenerators
 
--- генерация упорядоченных номеров с выводом в файл
+-- | генерация упорядоченных номеров с выводом в файл
 printOrderedPhonesToFile :: PhonePrefix -> Amount -> FilePath -> IO ()
 printOrderedPhonesToFile pref amount path =
   toFile path $ orderedPhonesGen pref amount
 
--- генерация упорядоченных номеров с выводом на консоль
+-- | генерация упорядоченных номеров с выводом на консоль
 printOrderedPhonesToConsole :: PhonePrefix -> Amount -> IO ()
 printOrderedPhonesToConsole pref amount =
   onConsole $ orderedPhonesGen pref amount
@@ -25,7 +33,7 @@ printRandomPhonesToFile pref amount path =
   let toFileFunc = toFile path
    in printRandomPhones pref amount toFileFunc
 
--- генерация случайных номеров с выводом на консоль
+-- | генерация случайных номеров с выводом на консоль
 printRandomPhonesOnConsole :: PhonePrefix -> Amount -> IO ()
 printRandomPhonesOnConsole pref amount = printRandomPhones pref amount onConsole
 
