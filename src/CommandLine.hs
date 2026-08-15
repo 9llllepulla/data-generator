@@ -1,6 +1,6 @@
 {-
 -----------------------------------------------------------------------------
-    Module      :  PersonalityGenerators
+    Module      :  CommandLine
     Copyright   :  (c) Sergey Lyashko 2023-2026
     License     :  see LICENSE
 -----------------------------------------------------------------------------

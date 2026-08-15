@@ -1,3 +1,11 @@
+{-
+-----------------------------------------------------------------------------
+    Module      :  PersonalityGenerators
+    Copyright   :  (c) Sergey Lyashko 2023-2026
+    License     :  see LICENSE
+-----------------------------------------------------------------------------
+-}
+
 module Main (main) where
 
 -- import CommandLine

@@ -1,13 +1,13 @@
 {-
 -----------------------------------------------------------------------------
-    Module      :  PersonalityGenerators
+    Module      :  PhoneGenerators
     Copyright   :  (c) Sergey Lyashko 2023-2026
     License     :  see LICENSE
 -----------------------------------------------------------------------------
 -}
+{-# LANGUAGE InstanceSigs #-}
 
 -- | Generator for phone numbers by prefix
-{-# LANGUAGE InstanceSigs #-}
 module PhoneGenerators
   ( orderedPhonesGen
   , randomPhoneGen
