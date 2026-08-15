@@ -8,14 +8,13 @@
 --
 -----------------------------------------------------------------------------
 module PhoneGenerators
-  ( orderedPhonesGen,
-    randomPhoneGen,
-    PhonePrefix,
-    Generated (..)
-  )
-where
+  ( orderedPhonesGen
+  , randomPhoneGen
+  , PhonePrefix
+  , Generated(..)
+  ) where
 
-import GeneratorUtils
+import           GeneratorUtils
 
 class Generated a where
   toString :: a -> String
@@ -23,7 +22,9 @@ class Generated a where
 instance Generated PhoneNumber where
   toString (PhoneNumber prefix number) = show prefix ++ show number
 
-data PhoneNumber = PhoneNumber PhonePrefix Int deriving (Show)
+data PhoneNumber =
+  PhoneNumber PhonePrefix Int
+  deriving (Show)
 
 type PhonePrefix = Int
 
@@ -35,7 +36,8 @@ randomPhoneGen prefix amount offset =
 
 -- генератор заданного количества номеров телефонов по префиксу
 orderedPhonesGen :: PhonePrefix -> Amount -> [String]
-orderedPhonesGen prefix amount = map (phoneWith prefix) $ take amount [1000000000 ..]
+orderedPhonesGen prefix amount =
+  map (phoneWith prefix) $ take amount [1000000000 ..]
 
 phoneWith :: PhonePrefix -> Int -> String
 phoneWith prefix = toString . PhoneNumber prefix

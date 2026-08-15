@@ -1,22 +1,23 @@
 module PhoneOutput
-  ( printRandomPhonesOnConsole,
-    printRandomPhonesToFile,
-    printOrderedPhonesToConsole,
-    printOrderedPhonesToFile,
-  )
-where
+  ( printRandomPhonesOnConsole
+  , printRandomPhonesToFile
+  , printOrderedPhonesToConsole
+  , printOrderedPhonesToFile
+  ) where
 
-import Data.Time
-import PhoneGenerators
-import GeneratorUtils
+import           Data.Time
+import           GeneratorUtils
+import           PhoneGenerators
 
 -- генерация упорядоченных номеров с выводом в файл
 printOrderedPhonesToFile :: PhonePrefix -> Amount -> FilePath -> IO ()
-printOrderedPhonesToFile pref amount path = toFile path $ orderedPhonesGen pref amount
+printOrderedPhonesToFile pref amount path =
+  toFile path $ orderedPhonesGen pref amount
 
 -- генерация упорядоченных номеров с выводом на консоль
 printOrderedPhonesToConsole :: PhonePrefix -> Amount -> IO ()
-printOrderedPhonesToConsole pref amount = onConsole $ orderedPhonesGen pref amount
+printOrderedPhonesToConsole pref amount =
+  onConsole $ orderedPhonesGen pref amount
 
 -- генерация случайных номеров с выводом в файл
 printRandomPhonesToFile :: PhonePrefix -> Amount -> FilePath -> IO ()
@@ -36,12 +37,12 @@ printRandomPhones pref amount ioFunc = do
 
 onConsole :: [String] -> IO ()
 onConsole [] = putStrLn ""
-onConsole (x : xs) = do
+onConsole (x:xs) = do
   putStrLn x
   onConsole xs
 
 toFile :: FilePath -> [String] -> IO ()
 toFile fileName [] = appendFile fileName ""
-toFile fileName (x : xs) = do
+toFile fileName (x:xs) = do
   appendFile fileName (x ++ "\n")
   toFile fileName xs

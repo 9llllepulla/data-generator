@@ -5,3 +5,5 @@ CHANGELOG.md
 *.iml
 *.txt
 stack.yaml.lock
+.DS_Store
+*/.DS_Store
